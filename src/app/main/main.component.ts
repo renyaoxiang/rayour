@@ -1,20 +1,19 @@
 import {
-  Component, OnInit, OnDestroy, OnChanges,
-  DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewInit, AfterViewChecked, SimpleChanges
-} from '@angular/core';
+  Component, SimpleChanges, OnInit, OnChanges,
+  AfterViewInit, DoCheck, AfterViewChecked, AfterContentInit,
+  AfterContentChecked, OnDestroy
+} from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  selector: 'app-main',
+  template: '<div>main works</div>'
 })
-export class AppComponent implements OnInit,
+export class MainComponent implements OnInit,
   OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
   AfterViewInit, AfterViewChecked, OnDestroy {
 
-  title = 'rayour';
   constructor(private https: HttpClient) {
     console.log('AppComponent constructor');
   }
@@ -43,11 +42,9 @@ export class AppComponent implements OnInit,
     console.log('AppComponent ngOnInit');
     this.doRequest().subscribe();
   }
-
   doRequest() {
     return this.https.get('/api/menu').pipe(tap(data => {
       console.log(data);
     }));
   }
-
 }

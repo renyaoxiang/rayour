@@ -4,9 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FooComponent } from '../foo/foo.component';
 
 @NgModule({
-  declarations: [LazyPageComponent, FooComponent],
+  declarations: [LazyPageComponent],
   imports: [
-
     RouterModule.forChild([{
       path: '',
       component: LazyPageComponent,
@@ -14,7 +13,6 @@ import { FooComponent } from '../foo/foo.component';
 
       ]
     }])],
-  exports: [LazyPageComponent]
 })
 export class LazyPageModule {
 
